@@ -1,0 +1,42 @@
+<div>
+  <h3 class="pull-right text-muted" style="margin-top: 10px;">
+    פעולות<any ng-if="model.filterByCat!==undefined">:&nbsp;{{model.filterByCat|category}}</any>
+  </h3>
+  <button type="button" ui-sref="app.home" class="pull-left new btn btn-default">לראשי <i class="fa fa-chevron-left"></i></button>
+  <div class="clearfix"></div>
+  <h4 class="text-center text-muted" style="padding:0 5px;direction: ltr;">
+    <any>{{model.currentDate.month}}</any>/<any>{{model.currentDate.year}}</any> - <any>{{model.currentDate.month<12?model.currentDate.month+1:1}}</any>/<any>{{model.currentDate.month==12?model.currentDate.year+1:model.currentDate.year}}</any>
+  </h4>
+
+  <table class="table table-striped" dir="rtl">
+    <thead>
+    <tr>
+      <!--<th class="text-right"><b>#</b></th>-->
+      <th class="text-right"><b>תאריך</b></th>
+      <th class="text-right"><b>קטגוריה</b></th>
+      <th class="text-right"><b>פירוט</b></th>
+      <th class="text-right"><b>סכום</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in model.filteredModel() | orderBy:'date'">
+      <!--<td class="text-right">{{$index+1}}</td>-->
+      <td class="text-right">{{row.date | date:'dd/MM/yy'}}</td>
+      <td class="text-right">{{row.category|category}}</td>
+      <td class="text-right">{{row.info}}</td>
+      <td class="text-right" style="direction: ltr;">{{row.sum.toFixed(2)}}</td>
+    </tr>
+    <tfoot>
+    <tr>
+      <!--<td class="text-right"></td>-->
+      <td class="text-right"></td>
+      <td class="text-right"></td>
+      <td class="text-left"><b>סה״כ</b></td>
+      <td class="text-right" style="direction: ltr;"><b>{{model.getTableSum()}}</b></td>
+    </tr>
+    </tfoot>
+
+
+    </tbody>
+  </table>
+</div>

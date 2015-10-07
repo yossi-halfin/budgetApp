@@ -1,0 +1,134 @@
+.container-fluid{
+  direction: rtl;
+  text-align: right;
+  .navbar-toggle {
+    margin-right: 0;
+    display: block;
+  }
+
+  .btn.new{
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.budgetApp{
+  $bgDefault      : #469bba;
+  $bgDefaultSnap  : #316578;
+  $bgHighlight    : #aac0c3;
+  $colDefault     : #ffffff;
+  $colHighlight   : #000000;
+  $dropDown       : false;
+  .navbar-default {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colDefault; }}
+    .navbar-text {
+      color: $colDefault; }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $colDefault;
+          &:hover,  &:focus {
+            color: $colHighlight; }}
+        @if $dropDown {
+          > .dropdown-menu {
+            background-color: $bgDefault;
+            > li > a {
+              color: $colDefault;
+              &:hover,  &:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}
+            .divider {
+              background-color: $bgHighlight;}}}
+      }
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}
+      > .open {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    .navbar-toggle {
+      border-color: $bgHighlight;
+      &:hover, &:focus {
+        background-color: $bgHighlight; }
+      .icon-bar {
+        background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+      border-color: $colDefault; }
+    .navbar-link {
+      color: $colDefault;
+      &:hover {
+        color: $colHighlight; }}}
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+      > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHighlight; }}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+  }
+
+
+  .snap-drawer-right{
+    background:$bgDefault;
+    width: 180px;
+    //border-left:1px solid #aac0c3;
+    .menu-header{
+      width: 100%;
+      height: 51px;
+      line-height: 50px;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 23px;
+      background-color: $bgDefaultSnap;
+      border-bottom:1px solid #aac0c3;
+    }
+
+    .menu-nav{
+      li{
+        line-height: 35px;
+        text-align: right;
+        a{
+          padding: 2px 20px;
+          text-align: right;
+          font-size: 18px;
+          color: white;
+          text-decoration: none;
+          display: inline-block;
+          width: 100%;
+          &.active{
+            background:white;
+            color:$bgDefaultSnap;
+          }
+        }
+        &+li{
+          border-top: 1px solid #CCC;
+        }
+      }
+    }
+  }
+
+  .snap-content{
+    padding-top: 65px;
+    background: white;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin: 15px 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.15);
+  }
+}

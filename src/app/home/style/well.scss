@@ -1,0 +1,32 @@
+.well{
+  text-align: center;
+  padding: 15px!important;
+  .pull-right{
+    padding-right:5px!important;
+    padding-left:5px!important;
+  }
+  & .well{
+    //background-color: #316578!important;
+    color: #316578;
+    padding:10px 5px!important;
+    cursor: pointer;
+
+    text-shadow: 0px 0px 9px #FFF;
+    background:url(
+      data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAO6KRXGjMhiIIHLczrOwgVhAiBFYEFkAbAgugBIEAAARBFCjnILwAAAAABJRU5ErkJggg==
+    ) repeat;
+    border:1px solid #316578;
+  }
+  .icon{
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+
+  .title{
+    font-size: 12px;
+  }
+  .sum{
+    font-size: 18px;
+    direction: ltr;
+  }
+}

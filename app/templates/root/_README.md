@@ -1,4 +1,4 @@
-# Budget app
+# <%= _.humanize(projectName) %>
 
 A simplified version of the ngBoilerplate angular project template.
 

@@ -1,0 +1,30 @@
+<div class="container-fluid login">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-12">
+      <div class="well">
+        <form role="form" name="register" class="text-right" ng-submit="model.register()" novalidate style="direction: rtl">
+          <div class="form-group text-center">
+            <img src="../assets/images/budgetapp.png" style="max-width: 100px;"><br>
+            <h4>ניהול תקציב - הרשמה</h4>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-group">
+            <label for="mail">דואל:</label>
+            <input type="mail" name="email"  required ng-model="model.newuser.email" style="direction: ltr" class="text-center form-control input-lg" id="mail">
+          </div>
+          <div class="form-group">
+            <label for="pwd">סיסמא:</label>
+            <input type="password" name="password" ng-minlength="6"  required ng-model="model.newuser.password" style="direction: ltr" class="text-center form-control  input-lg" id="pwd">
+          </div>
+
+          <button type="submit" ng-disabled="register.$invalid" class="btn btn-primary btn-md">הרשם</button>
+          <button type="reset" class="btn btn-default btn-md">נקה</button>
+          <div class="bg-danger text-center" style="direction: ltr;padding: 10px 0;margin-top: 15px;" ng-show="model.err!==null">{{model.err}}</div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

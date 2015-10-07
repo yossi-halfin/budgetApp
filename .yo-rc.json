@@ -1,0 +1,6 @@
+{
+  "generator-ngbp-ui": {
+    "projectName": "budgetApp",
+    "useCoffeescript": false
+  }
+}

@@ -1,0 +1,12 @@
+<div class="modal-header clearfix">
+	<i class="pull-left fa fa-times pointer" ng-click="cancel()"></i>
+	<!--<div class="clearfix"></div>-->
+	<h4 class="modal-title text-muted pull-right">הודעת מערכת</h4>
+</div>
+<div class="modal-body text-right">
+	<p translate class="text-danger">{{message}}</p>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-defaul btn-md" ng-click="cancel()">בטל</button>
+	<button class="btn btn-primary btn-md" ng-click="ok()">המשך</button>
+</div>
