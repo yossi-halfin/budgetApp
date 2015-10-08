@@ -16,13 +16,19 @@
         }
       },
 
-      data: {pageTitle: 'Main'}
+      data: {
+        pageTitle: 'Main',
+        state:'ראשי'
+      }
     }).
       state('app.home.new', {
         url: '/new?cat',
         controller: 'NewController as model',
         templateUrl: 'home/new.tpl.html',
-        data: {pageTitle: 'New item'}
+        data: {
+          pageTitle: 'New item',
+          state:'חדש'
+        }
       });
   });
 

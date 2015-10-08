@@ -9,7 +9,10 @@
                     templateUrl: 'details/details.tpl.html'
                 }
             },
-            data:{ pageTitle: 'Transactions' }
+            data:{
+              pageTitle: 'Transactions',
+              state:'פעולות'
+            }
         });
     });
 

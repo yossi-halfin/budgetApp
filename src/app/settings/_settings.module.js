@@ -9,7 +9,10 @@
                     templateUrl: 'settings/settings.tpl.html'
                 }
             },
-            data:{ pageTitle: 'Settings' }
+            data:{
+              pageTitle: 'Settings',
+              state:'הגדרות'
+            }
         });
     });
 

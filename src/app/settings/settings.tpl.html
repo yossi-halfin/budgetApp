@@ -1,29 +1,31 @@
-<h3 class="text-muted" style="margin-top: 10px;">הגדרות</h3>
+<div>
+  <h3 class="text-muted" style="margin-top: 10px;">הגדרות</h3>
 
-<div class="row">
-  <div class="col-md-4 col-md-offset-4 col-xs-12">
-    <div class="well">
-      <form role="form" name="login" class="text-right" novalidate style="direction: rtl">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-12">
+      <div class="well">
+        <form role="form" name="login" class="text-right" novalidate style="direction: rtl">
 
-        <div class="form-group">
-          <label for="date">תאריך חיוב חודשי:</label>
-          <select name="date" ng-model="model.settings.date" id="date" class="form-control input-lg">
-            <option value="2">ה-02 לחודש</option>
-            <option value="10">ה-10 לחודש</option>
-            <option value="15">ה-15 לחודש</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="date">תאריך חיוב חודשי:</label>
+            <select name="date" ng-model="model.settings.date" id="date" class="form-control input-lg">
+              <option value="2">ה-02 לחודש</option>
+              <option value="10">ה-10 לחודש</option>
+              <option value="15">ה-15 לחודש</option>
+            </select>
+          </div>
 
-        {{model.settingsCopy}}
-        <!--<div class="form-group">-->
+          {{model.settingsCopy}}
+          <!--<div class="form-group">-->
           <!--<label for="pwd">סיסמא:</label>-->
           <!--<input type="password" name="password" required ng-model="model.user.password" style="direction: ltr" class="text-center form-control  input-lg" id="pwd">-->
-        <!--</div>-->
+          <!--</div>-->
 
-        <button  ng-disabled="!login.$dirty" ng-click="model.save();login.$setPristine()" class="btn btn-primary btn-md">שמור שינויים</button>
-        <button class="btn btn-default btn-md" ng-click="model.cancelChanges();login.$setPristine()">בטל שינויים</button>
-      </form>
+          <button  ng-disabled="!login.$dirty" ng-click="model.save();login.$setPristine()" class="btn btn-primary btn-md">שמור שינויים</button>
+          <button class="btn btn-default btn-md" ng-click="model.cancelChanges();login.$setPristine()">בטל שינויים</button>
+        </form>
 
+      </div>
     </div>
   </div>
 </div>

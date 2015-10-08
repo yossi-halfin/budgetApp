@@ -44,7 +44,7 @@
   });
 
 
-  app.controller('RegisterController', function ($scope, $firebaseArray, $stateParams, $rootScope, $state) {
+  app.controller('RegisterController', function ($scope, $firebaseArray, $stateParams, $rootScope, $state,localStorageService) {
     var model = this;
     var ref = new Firebase("https://budgethalfinapp.firebaseio.com");
     model.newuser = {
@@ -69,10 +69,24 @@
               model.err = "Error creating user:" + error;
           }
         } else {
-          $state.go('login');
+          ref.authWithPassword({
+            email: model.newuser.email,
+            password: model.newuser.password
+          }, function (error, authData) {
+            if (error) {
+              console.log("Login Failed!", error);
+              model.err = error;
+              $rootScope.showLoader = false;
+              $scope.$apply();
+            } else {
+              console.log("Authenticated successfully with payload:", authData);
+              localStorageService.set('budgetApp-uid', authData.uid);
+              $scope.$apply();
+              $state.go('app.home');
+            }
+          });
         }
-        $rootScope.showLoader = false;
-        $scope.$apply();
+
       });
 
     }
