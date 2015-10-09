@@ -1,0 +1,39 @@
+<div class="modal-header clearfix">
+	<i class="pull-left fa fa-times pointer" ng-click="model.cancel()"></i>
+	<!--<div class="clearfix"></div>-->
+	<h4 class="modal-title text-muted pull-right">עריכת פעולה</h4>
+</div>
+<div class="modal-body text-right">
+
+  <form name="newTransaction" role="form" novalidate style="direction: rtl">
+    <div class="form-group">
+      <label for="category">קטגוריה:</label>
+      <select id="category"
+              style="width: 100%;"
+              required
+              ng-options="category.ID as category.label for category in model.CATEGORIES"
+              ng-model="model.transaction.category" class="form-control input-lg">
+      </select>
+
+    </div>
+
+    <div class="form-group">
+      <label for="date">תאריך:</label>
+      <input style="width: 100%;" required type="date" ng-model="model.transaction.date" class="form-control input-lg" id="date">
+    </div>
+    <div class="form-group">
+      <label for="info">פירוט ההוצאה:</label>
+      <input style="width: 100%;" required type="text" ng-model="model.transaction.info" class="form-control input-lg" id="info">
+    </div>
+    <div class="form-group">
+      <label for="sum">סכום ההוצאה:</label>
+      <input style="width: 100%;" required type="number" ng-model="model.transaction.sum" class="form-control  input-lg" id="sum">
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-defaul btn-md" ng-click="model.cancel()">בטל</button>
+	<button class="btn btn-danger btn-md" ng-click="model.delete()">מחיקה</button>
+	<button class="btn btn-primary btn-md" ng-disabled="newTransaction.$invalid" ng-click="model.delete()">שמירה</button>
+</div>

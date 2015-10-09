@@ -4,7 +4,8 @@
 
   module.service('modalSrv', modalConfig);
   module.controller('modalCtrl', modalCtrl);
-
+  module.service('editSrv', editSrv);
+  module.controller('modalEditCtrl', modalEditCtrl);
 
 
   function currentDateFunc(localStorageService, $firebaseObject) {
@@ -69,6 +70,49 @@
       $modalInstance.dismiss('cancel');
     };
   }
+
+
+  function editSrv($modal) {
+    this.open = function (transaction) {
+      var instance = $modal.open({
+        templateUrl: 'details/edit.tpl.html',
+        controller: 'modalEditCtrl as model',
+        resolve: {
+          transaction: function () {
+            return transaction;
+          }
+        }
+      });
+      return instance.result.then(function (callback) {
+        return callback;
+      });
+    };
+  }
+
+  function modalEditCtrl($scope, $modalInstance,transaction,CATEGORIES) {
+    var model = this;
+    model.transaction = angular.copy(transaction);
+    model.transaction.date = new Date(model.transaction.date);
+    model.CATEGORIES = CATEGORIES;
+
+    model.save = function () {
+      var tempTransaction = angular.copy(model.transaction);
+      tempTransaction.date = tempTransaction.date.getTime();
+      $modalInstance.close({item:tempTransaction,save:true});
+    };
+
+
+    model.delete = function () {
+      var tempTransaction = angular.copy(model.transaction);
+      tempTransaction.date = tempTransaction.date.getTime();
+      $modalInstance.close({item:tempTransaction,save:false});
+    };
+
+    model.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  }
+
 
 }(angular.module("common")));
 

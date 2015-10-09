@@ -1,11 +1,12 @@
 (function (app) {
 
-  app.controller('DetailsController', function ($scope, firebase, $firebaseArray, $stateParams, $rootScope, $state, currentDate, $filter) {
+  app.controller('DetailsController', function ($scope, firebase, $firebaseArray, $stateParams, $rootScope, $state, currentDate, $filter,editSrv) {
     var model = this;
     model.transactions = null;
     model.getTableSum = getTableSum;
     model.filterByCat = $stateParams.cat;
     model.filteredModel = filter;
+    model.edit = edit;
 
 
     init();
@@ -36,6 +37,27 @@
 
     function filter(){
       return $filter('filter')(model.transactions,{ category: model.filterByCat });
+    }
+
+    function edit(item){
+      var index = model.transactions.$indexFor(item.$id);
+      editSrv.open(model.transactions[index]).then(function(res){
+        $rootScope.showLoader = true;
+        if(res.save){
+          model.transactions[index]=res.item;
+          model.transactions.$save(index).then(function() {
+            $rootScope.showLoader = false;
+            $state.go('app.details',{cat:res.item.category});
+          });
+        }else{
+          model.transactions.$remove(model.transactions[index]).then(function() {
+            $rootScope.showLoader = false;
+            $state.go('app.details',{cat:res.item.category});
+          });
+        }
+
+      });
+
     }
 
 
