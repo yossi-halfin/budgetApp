@@ -1,107 +1,131 @@
-<div class="row" ui-view style="padding:0 15px !important;">
-  <div class="well clearfix" style="padding: 10px 5px 0 !important;">
-    <h4 class="text-center text-muted" style="padding:0 5px;direction: ltr;">
-      <any>{{model.currentDate.month}}</any>/<any>{{model.currentDate.year}}</any> - <any>{{model.currentDate.month<12?model.currentDate.month+1:1}}</any>/<any>{{model.currentDate.month==12?model.currentDate.year+1:model.currentDate.year}}</any>
+<div class="row" ui-view  style="padding:0 15px !important;">
+  <div class="well clearfix nopadding col-lg-6 col-lg-offset-3" style="padding: 10px 5px 0 !important;">
+    <h4 ng-style="{'visibility':!model.currentDate.month?'hidden':'visible'}" class="text-center text-muted" style="padding:0 5px;direction: ltr;">
+      <any>{{model.currentDate.month}}</any>/<any>{{model.currentDate.year}}</any>
+      -
+      <any>{{model.currentDate.month<12?model.currentDate.month+1:1}}</any>/<any>{{model.currentDate.month==12?model.currentDate.year+1:model.currentDate.year}}</any>
     </h4>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:1})">
-          <span class="icon fa fa-shopping-cart"></span>
-          <div class="sum">{{model.categories[1].toFixed(2)}}</div>
-          <div class="title">סופרמרקט</div>
-        </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:1})">
+        <span class="icon fa fa-shopping-cart"></span>
+
+        <div class="sum">{{model.categories[1].toFixed(2)}}</div>
+        <div class="title">סופרמרקט</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg"ui-sref="app.details({cat:2})">
-          <span class="icon fa fa-medkit"></span>
-          <div class="sum">{{model.categories[2].toFixed(2)}}</div>
-          <div class="title">סופרפארם</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:2})">
+        <span class="icon fa fa-medkit"></span>
+
+        <div class="sum">{{model.categories[2].toFixed(2)}}</div>
+        <div class="title">סופרפארם</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg"ui-sref="app.details({cat:5})">
-          <span class="icon fa fa-cutlery"></span>
-          <div class="sum">{{model.categories[5].toFixed(2)}}</div>
-          <div class="title">מסעדות</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:5})">
+        <span class="icon fa fa-cutlery"></span>
+
+        <div class="sum">{{model.categories[5].toFixed(2)}}</div>
+        <div class="title">מסעדות</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:6})">
-          <span class="icon fa fa-beer"></span>
-          <div class="sum">{{model.categories[6].toFixed(2)}}</div>
-          <div class="title">בילויים</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:6})">
+        <span class="icon fa fa-beer"></span>
+
+        <div class="sum">{{model.categories[6].toFixed(2)}}</div>
+        <div class="title">בילויים</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:9})">
-          <span class="icon fa fa-paypal"></span>
-          <div class="sum">{{model.categories[9].toFixed(2)}}</div>
-          <div class="title">אונליין</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:9})">
+        <span class="icon fa fa-paypal"></span>
+
+        <div class="sum">{{model.categories[9].toFixed(2)}}</div>
+        <div class="title">אונליין</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:7})">
-          <span class="icon fa fa-users"></span>
-          <div class="sum">{{model.categories[7].toFixed(2)}}</div>
-          <div class="title">ביגוד</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:7})">
+        <span class="icon fa fa-users"></span>
+
+        <div class="sum">{{model.categories[7].toFixed(2)}}</div>
+        <div class="title">ביגוד</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:8})">
-          <span class="icon fa fa-music"></span>
-          <div class="sum">{{model.categories[8].toFixed(2)}}</div>
-          <div class="title">אירועים</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:8})">
+        <span class="icon fa fa-music"></span>
+
+        <div class="sum">{{model.categories[8].toFixed(2)}}</div>
+        <div class="title">אירועים</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:4})">
-          <span class="icon fa fa-plug"></span>
-          <div class="sum">{{model.categories[4].toFixed(2)}}</div>
-          <div class="title">חשבונות</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:4})">
+        <span class="icon fa fa-plug"></span>
+
+        <div class="sum">{{model.categories[4].toFixed(2)}}</div>
+        <div class="title">חשבונות</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:3})">
-          <span class="icon fa fa-money"></span>
-          <div class="sum">{{model.categories[3].toFixed(2)}}</div>
-          <div class="title">תשלומים</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:3})">
+        <span class="icon fa fa-money"></span>
+
+        <div class="sum">{{model.categories[3].toFixed(2)}}</div>
+        <div class="title">תשלומים</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:10})">
-          <span class="icon fa fa-gift"></span>
-          <div class="sum">{{model.categories[10].toFixed(2)}}</div>
-          <div class="title">שונות</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:10})">
+        <span class="icon fa fa-gift"></span>
+
+        <div class="sum">{{model.categories[10].toFixed(2)}}</div>
+        <div class="title">שונות</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details({cat:11})">
-          <span class="icon fa fa-car"></span>
-          <div class="sum">{{model.categories[11].toFixed(2)}}</div>
-          <div class="title">תחבורה</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details({cat:11})">
+        <span class="icon fa fa-car"></span>
+
+        <div class="sum">{{model.categories[11].toFixed(2)}}</div>
+        <div class="title">תחבורה</div>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
-        <div class="well well-lg" ui-sref="app.details">
-          <span class="icon fa fa-credit-card"></span>
-          <div class="sum">{{model.categories[12].toFixed(2)}}</div>
-          <div class="title">סה״כ</div>
-        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-4 pull-right">
+      <div class="well well-lg" ui-sref="app.details">
+        <span class="icon fa fa-credit-card"></span>
+
+        <div class="sum">{{model.categories[12].toFixed(2)}}</div>
+        <div class="title">סה״כ</div>
       </div>
+    </div>
 
   </div>
 
-  <div class="well clearfix">
-    <div class="col-lg-6 col-lg-offset-3  col-md-12 col-sm-12  col-xs-12">
-      <canvas tc-chartjs
-              chart-type="bar"
-              chart-options="model.options"
-              chart-data="model.data"></canvas>
+  <div  ng-if="model.categories[model.categories.length-1].toFixed(2)>0"
+       class="well clearfix col-lg-6 col-lg-offset-3">
+    <h3 class="text-muted" style="padding:0 5px;">השוואה גרפית</h3><br>
+    <div class="col-lg-5 col-lg-offset-2  col-md-6 col-md-offset-1 col-sm-12  col-xs-12 pie">
 
+      <canvas
+        width="300"
+        height="300"
+        style="max-width: 400px;max-height: 400px"
+        tc-chartjs
+        chart-type="doughnut"
+        chart-options="model.options"
+        chart-legend="legend"
+        chart-data="model.data"></canvas>
+    </div>
+    <div class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 legends col-sm-6 col-sm-offset-3 col-xs-12 clearfix">
+      <div tc-chartjs-legend chart-legend="legend" class="clearfix"></div>
     </div>
   </div>
 
-  <div class="well clearfix" ng-if="model.categories[model.categories.length-1].toFixed(2)>0">
-    <h3 class="text-muted" style="padding:0 5px;">פעולות אחרונות</h3>
+  <div class="well clearfix col-lg-6 col-lg-offset-3" ng-if="model.categories[model.categories.length-1].toFixed(2)>0">
+    <h3 class="text-muted" style="padding:0 5px;">פעולות אחרונות</h3><br>
     <table class="table" dir="rtl">
       <thead>
       <tr>

@@ -1,4 +1,4 @@
-(function(module) {
+(function (module) {
 
   module.constant('CATEGORIES', [
     {
@@ -48,16 +48,25 @@
 
   ]);
   module.constant('COLORS', [
-    '#9DF2AF',
-    '#8BACE3',
-    '#89CC7A',
-    '#844A66',
-    '#44739E',
-    '#ED84CD',
-    '#4A561F',
-    '#706D1E',
-    '#7FB5FC',
-    '#282828'
+    '#ff8a8c',
+    '#d98baa',
+    '#ff8ae9',
+    '#a7a1bf',
+    '#262633',
+    '#606b73',
+    '#1c3333',
+    '#67bf99',
+    '#83f288',
+    '#748c4c',
+    '#4d3132',
+    '#805273',
+    '#926ecc',
+    '#4d4b66',
+    '#7c9fe6',
+    '#6eb0cc',
+    '#bdffff',
+    '#4b6650',
+    '#e9ffd6'
 
   ]);
 

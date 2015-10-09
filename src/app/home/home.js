@@ -14,42 +14,36 @@
   module.controller('HomeController', function ($firebaseArray, $log, firebase, $rootScope, $state, CATEGORIES, COLORS, currentDate, $scope) {
     var model = this;
     model.categories = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    model.categoriesValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     model.data = [];
-    var categoriesLabels = [];
 
     init();
 
     function init() {
       $rootScope.showLoader = true;
 
-      // Chart.js Data
-      model.data = {
-        labels: categoriesLabels,
-        datasets: [
-          {
-            fillColor: 'rgba(49,101,120,0.6)',
-            strokeColor: 'rgba(49,101,120,0.7)',
-            highlightFill: 'rgba(49,101,120,0.78)',
-            highlightStroke: 'rgba(49,101,120,1)',
-            data: model.categoriesValues
-          }
-        ]
-      };
+
 
       currentDate.getRange().then(function (res) {
         model.currentDate = res;
         model.objRef = $firebaseArray(firebase.child(model.currentDate.year + '/' + model.currentDate.month));
 
         model.objRef.$loaded().then(function () {
-          angular.forEach(model.objRef, function (value) {
+          angular.forEach(model.objRef, function (value,key) {
             model.categories[value.category] += value.sum;
-            model.categoriesValues[value.category-1] += value.sum;
             model.categories[12] += value.sum;
+
+
           });
 
-          angular.forEach(CATEGORIES, function (value, key) {
-            categoriesLabels[key] = value.label;
+          angular.forEach(model.categories.slice(1, 12), function (value, key) {
+            model.data.push(
+              {
+                value: value,
+                color:COLORS[key],
+                highlight: COLORS[key],
+                label: CATEGORIES[key].label
+              }
+            );
           });
           $rootScope.showLoader = false;
         }, function (error) {
@@ -61,33 +55,37 @@
 
       // Chart.js Options
       model.options = {
-
-        // Sets the chart to be responsive
+// Sets the chart to be responsive
         responsive: true,
 
-        //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-        scaleBeginAtZero: true,
+        //Boolean - Whether we should show a stroke on each segment
+        segmentShowStroke : true,
 
-        //Boolean - Whether grid lines are shown across the chart
-        scaleShowGridLines: false,
+        //String - The colour of each segment stroke
+        segmentStrokeColor : '#fff',
 
-        //String - Colour of the grid lines
-        scaleGridLineColor: "rgba(0,0,0,.02)",
+        //Number - The width of each segment stroke
+        segmentStrokeWidth : 2,
 
-        //Number - Width of the grid lines
-        scaleGridLineWidth: 0,
+        //Number - The percentage of the chart that we cut out of the middle
+        percentageInnerCutout : 50, // This is 0 for Pie charts
 
-        //Boolean - If there is a stroke on each bar
-        barShowStroke: true,
+        //Number - Amount of animation steps
+        animationSteps : 50,
 
-        //Number - Pixel width of the bar stroke
-        barStrokeWidth: 1,
+        //String - Animation easing effect
+        animationEasing : 'easeOut',
 
-        //Number - Spacing between each of the X value sets
-        barValueSpacing: 15,
+        //Boolean - Whether we animate the rotation of the Doughnut
+        animateRotate : true,
 
-        //Number - Spacing between data sets within X values
-        barDatasetSpacing: 150,
+        //Boolean - Whether we animate scaling the Doughnut from the centre
+        animateScale : false,
+
+        //String - A legend template
+        legendTemplate : '<ul class="tc-chart-js-legend">' +
+        '<% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+
       };
 
 

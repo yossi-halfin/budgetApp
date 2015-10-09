@@ -3,6 +3,7 @@
     <div class="form-group">
       <label for="category">קטגוריה:</label>
       <select id="category"
+              style="width: 100%;"
               required
               ng-options="category.ID as category.label for category in model.CATEGORIES"
               ng-model="model.newTransaction.category" class="form-control input-lg">
@@ -12,20 +13,16 @@
 
     <div class="form-group">
       <label for="date">תאריך:</label>
-      <input required type="date" ng-model="model.newTransaction.date" class="form-control input-lg" id="date">
+      <input style="width: 100%;" required type="date" ng-model="model.newTransaction.date" class="form-control input-lg" id="date">
     </div>
     <div class="form-group">
       <label for="info">פירוט ההוצאה:</label>
-      <input required type="text" ng-model="model.newTransaction.info" class="form-control input-lg" id="info">
+      <input style="width: 100%;" required type="text" ng-model="model.newTransaction.info" class="form-control input-lg" id="info">
     </div>
     <div class="form-group">
       <label for="sum">סכום ההוצאה:</label>
-      <input required type="number" ng-model="model.newTransaction.sum" class="form-control  input-lg" id="sum">
+      <input style="width: 100%;" required type="number" ng-model="model.newTransaction.sum" class="form-control  input-lg" id="sum">
     </div>
-    <!--<div class="form-group">-->
-      <!--<label for="payments">תשלומים:</label>-->
-      <!--<input required type="number" ng-model="model.newTransaction.פayments" class="form-control  input-lg" id="payments">-->
-    <!--</div>-->
 
     <button type="submit" class="btn btn-primary btn-md" ng-disabled="newTransaction.$invalid" ng-click="model.add()">הוסף</button>
     <button type="reset" class="btn btn-defaul btn-md" ui-sref="app.home">בטל</button>

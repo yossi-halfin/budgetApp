@@ -82,16 +82,18 @@
   .snap-drawer-right{
     background:$bgDefault;
     width: 180px;
+    padding-top: 51px;
     //border-left:1px solid #aac0c3;
     .menu-header{
       width: 100%;
-      height: 51px;
-      line-height: 50px;
+      height: 30px;
+      line-height: 30px;
       text-align: center;
-      color: rgba(255,255,255,0.4);
-      font-size: 23px;
+      color: rgba(255,255,255,0.6);
+      font-size: 18px;
       background-color: $bgDefaultSnap;
       border-bottom:1px solid #aac0c3;
+      font-style: italic;
     }
 
     .menu-nav{
@@ -132,4 +134,19 @@
     overflow: hidden;
     background-color: rgba(0,0,0,0.15);
   }
+}
+
+
+
+.cc{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+}
+
+.nopadding {
+  padding: 0 !important;
 }

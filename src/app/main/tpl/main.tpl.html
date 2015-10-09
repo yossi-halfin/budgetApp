@@ -8,6 +8,10 @@
     <!--<li><a snap-close ui-sref-active="active" ui-sref="app.history">היסטוריה</a></li>-->
     <li><a snap-close href="#" ng-click="model.logout()">התנתק</a></li>
   </ul>
+
+  <div class="cc">
+    <p>.....</p>
+  </div>
 </snap-drawer>
 
 <div class="navbar navbar-default navbar-fixed-top">
@@ -20,7 +24,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <button type="button" ui-sref="app.home.new({cat:$state.params.cat})" class="pull-left new btn btn-danger fa fa-plus"></button>
+      <button type="button" snap-close ui-sref="app.home.new({cat:$state.params.cat})" class="pull-left new btn btn-danger fa fa-plus"></button>
 
       <span class="navbar-brand" style="position: relative;top: 15px;float: none">
         <any>ניהול תקציב</any> -
@@ -32,9 +36,6 @@
 </div>
 
 <snap-content snap-opt-max-position="180" snap-opt-min-position="-180">
-
-
-
   <div class="container-fluid">
     <div ui-view="main" class="anim-in-out anim-fade" data-anim-speed="300"></div>
 

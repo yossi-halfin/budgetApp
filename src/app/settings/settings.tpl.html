@@ -2,7 +2,7 @@
   <h3 class="text-muted" style="margin-top: 10px;">הגדרות</h3>
 
   <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-xs-12">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-6 col-xs-12">
       <div class="well">
         <form role="form" name="login" class="text-right" novalidate style="direction: rtl">
 
@@ -15,14 +15,8 @@
             </select>
           </div>
 
-          {{model.settingsCopy}}
-          <!--<div class="form-group">-->
-          <!--<label for="pwd">סיסמא:</label>-->
-          <!--<input type="password" name="password" required ng-model="model.user.password" style="direction: ltr" class="text-center form-control  input-lg" id="pwd">-->
-          <!--</div>-->
-
           <button  ng-disabled="!login.$dirty" ng-click="model.save();login.$setPristine()" class="btn btn-primary btn-md">שמור שינויים</button>
-          <button class="btn btn-default btn-md" ng-click="model.cancelChanges();login.$setPristine()">בטל שינויים</button>
+          <button class="btn btn-default btn-md" ng-disabled="!login.$dirty" ng-click="model.cancelChanges();login.$setPristine()">בטל שינויים</button>
         </form>
 
       </div>
