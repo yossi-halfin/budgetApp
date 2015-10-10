@@ -122,8 +122,10 @@
 
   .snap-content{
     margin-top: 50px;
-    padding-top: 15px;
     background: white;
+      [ui-view="main"]{
+        padding-top: 15px;
+      }
   }
 
   .divider {

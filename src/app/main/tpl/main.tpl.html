@@ -31,9 +31,9 @@
         <span class="icon-bar"></span>
       </button>
 
-      <button type="button" snap-close ui-sref="app.home.new({cat:$state.params.cat})" class="pull-left new btn btn-danger fa fa-plus"></button>
+      <button ng-if="!$state.includes('app.details')" type="button" snap-close ui-sref="app.home.new({cat:$state.params.cat})" class="pull-left new btn btn-danger fa fa-plus"></button>
 
-      <span class="navbar-brand" style="position: relative;top: 15px;float: none">
+      <span class="navbar-brand pull-right">
         <any>ניהול תקציב</any> -
         <any>{{$state.current.data.state}}</any>
       </span>
@@ -44,7 +44,7 @@
 
 <snap-content snap-opt-max-position="180" snap-opt-min-position="-180">
   <div class="container-fluid">
-    <div ui-view="main" class="anim-in-out anim-fade" data-anim-speed="300"></div>
+    <div ui-view="main" autoscroll='true' id="main-wrapper" class="anim-in-out anim-fade" data-anim-speed="300"></div>
 
   </div>
 </snap-content>

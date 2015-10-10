@@ -112,7 +112,8 @@
       var tempTranaction = angular.copy(model.newTransaction);
       tempTranaction.date = tempTranaction.date.getTime();
       model.objRef.$add(tempTranaction).then(function (ref) {
-        $state.go('app.home', {}, {reload: true});
+        //$state.go('app.home', {}, {reload: true});
+        $state.go('app.details',{cat:tempTranaction.category},{reload: true});
 
       });
     }
