@@ -22,24 +22,21 @@
       $rootScope.showLoader = true;
 
 
-
       currentDate.getRange().then(function (res) {
         model.currentDate = res;
         model.objRef = $firebaseArray(firebase.child(model.currentDate.year + '/' + model.currentDate.month));
 
         model.objRef.$loaded().then(function () {
-          angular.forEach(model.objRef, function (value,key) {
+          angular.forEach(model.objRef, function (value, key) {
             model.categories[value.category] += value.sum;
             model.categories[12] += value.sum;
-
-
           });
 
           angular.forEach(model.categories.slice(1, 12), function (value, key) {
             model.data.push(
               {
                 value: value,
-                color:COLORS[key],
+                color: COLORS[key],
                 highlight: COLORS[key],
                 label: CATEGORIES[key].label
               }
@@ -55,35 +52,35 @@
 
       // Chart.js Options
       model.options = {
-// Sets the chart to be responsive
+        // Sets the chart to be responsive
         responsive: true,
 
         //Boolean - Whether we should show a stroke on each segment
-        segmentShowStroke : true,
+        segmentShowStroke: true,
 
         //String - The colour of each segment stroke
-        segmentStrokeColor : '#fff',
+        segmentStrokeColor: '#fff',
 
         //Number - The width of each segment stroke
-        segmentStrokeWidth : 2,
+        segmentStrokeWidth: 2,
 
         //Number - The percentage of the chart that we cut out of the middle
-        percentageInnerCutout : 50, // This is 0 for Pie charts
+        percentageInnerCutout: 50, // This is 0 for Pie charts
 
         //Number - Amount of animation steps
-        animationSteps : 50,
+        animationSteps: 50,
 
         //String - Animation easing effect
-        animationEasing : 'easeOut',
+        animationEasing: 'easeOut',
 
         //Boolean - Whether we animate the rotation of the Doughnut
-        animateRotate : true,
+        animateRotate: true,
 
         //Boolean - Whether we animate scaling the Doughnut from the centre
-        animateScale : false,
+        animateScale: false,
 
         //String - A legend template
-        legendTemplate : '<ul class="tc-chart-js-legend">' +
+        legendTemplate: '<ul class="tc-chart-js-legend">' +
         '<% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
 
       };
@@ -113,7 +110,7 @@
       tempTranaction.date = tempTranaction.date.getTime();
       model.objRef.$add(tempTranaction).then(function (ref) {
         //$state.go('app.home', {}, {reload: true});
-        $state.go('app.details',{cat:tempTranaction.category},{reload: true});
+        $state.go('app.details', {cat: tempTranaction.category}, {reload: true});
 
       });
     }

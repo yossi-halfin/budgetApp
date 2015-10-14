@@ -28,7 +28,6 @@
           $state.go('app.home');
         }
       });
-
     }
 
     init();

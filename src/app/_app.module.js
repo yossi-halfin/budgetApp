@@ -9,7 +9,7 @@
       abstract: true,
       templateUrl: 'main/tpl/main.tpl.html',
       resolve: {
-        firebase: function (localStorageService, $rootScope) {
+        firebase: function (localStorageService, $rootScope,$state) {
           $rootScope.showLoader = true;
           var uid = localStorageService.get('budgetApp-uid');
           var ref = (new Firebase("https://budgethalfinapp.firebaseio.com/" + uid));
@@ -22,6 +22,9 @@
             }
             $rootScope.showLoader = false;
 
+          },function(error){
+            $rootScope.showLoader = false;
+            $state.go('login');
           });
           return ref;
         }

@@ -156,3 +156,16 @@
 .nopadding {
   padding: 0 !important;
 }
+.table{
+  .free-text{
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+  }
+  .edit{
+    width: 40px;
+  }
+}
+
+
