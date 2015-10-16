@@ -4,6 +4,9 @@
     return function (input, id) {
       var out = [];
 
+      if(angular.isUndefined(id.category)){
+        return input;
+      }
       angular.forEach(input, function(transaction) {
 
         if (transaction.category === parseInt(id.category)) {
@@ -15,6 +18,9 @@
       return out;
     };
   });
+
+
+
   app.controller('DetailsController', function ($scope, firebase, $firebaseArray, $stateParams, $rootScope, $state, currentDate, $filter,editSrv) {
     var model = this;
     model.transactions = null;
@@ -38,8 +44,6 @@
           $rootScope.showLoader = false;
         });
       });
-
-
     }
 
     function getTableSum() {

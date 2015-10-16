@@ -139,7 +139,7 @@
       <tbody>
       <tr ng-repeat="row in model.objRef | orderBy:'-date' | limitTo:0:10">
         <!--<td class="text-right">{{$index+1}}</td>-->
-        <td class="text-right">{{row.date | date:'dd/MM/yy'}}</td>
+        <td class="text-right">{{row.date | date:'dd/MM'}}</td>
         <td class="text-right">{{row.category|category}}</td>
         <td class="text-right">{{row.info}}</td>
         <td class="text-right" style="direction: ltr;">{{row.sum.toFixed(2)}}</td>

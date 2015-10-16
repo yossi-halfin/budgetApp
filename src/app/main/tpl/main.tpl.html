@@ -31,7 +31,23 @@
         <span class="icon-bar"></span>
       </button>
 
-      <button ng-if="!$state.includes('app.details')" type="button" snap-close ui-sref="app.home.new({cat:$state.params.cat})" class="pull-left new btn btn-danger fa fa-plus"></button>
+      <span
+        snap-close
+        ng-click="model.back()"
+        class="custom-btn pull-left fa fa-chevron-left">
+      </span>
+      <span
+        ng-if="!$state.includes('app.details')"
+        class="custom-sep pull-left">
+      </span>
+      <span
+        ui-sref="app.home.new({cat:$state.params.cat})"
+        ng-if="!$state.includes('app.details')"
+        snap-close
+        class="custom-btn pull-left fa fa-plus">
+      </span>
+
+
 
       <span class="navbar-brand pull-right">
         <any>ניהול תקציב</any> -

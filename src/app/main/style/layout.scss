@@ -156,3 +156,22 @@
 .nopadding {
   padding: 0 !important;
 }
+
+.custom-btn{
+  margin: 8px 0 0 0;
+  margin-right: 10px !important;
+  line-height: 34px;
+  font-size: 23px;
+  color: #FFF;
+  cursor: pointer;
+  + .custom-sep{
+    height: 20px;
+    width: 1px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 15px 5px 0;
+    + .custom-btn{
+      margin-left: 10px;
+    }
+  }
+}
