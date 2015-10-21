@@ -27,6 +27,7 @@
         model.objRef = $firebaseArray(firebase.child(model.currentDate.year + '/' + model.currentDate.month));
 
         model.objRef.$loaded().then(function () {
+          $scope.$emit('newItems',model.objRef);
           angular.forEach(model.objRef, function (value, key) {
             model.categories[value.category] += value.sum;
             model.categories[12] += value.sum;

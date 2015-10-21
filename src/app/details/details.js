@@ -38,6 +38,7 @@
         model.currentDate = res;
         model.transactions = $firebaseArray(firebase.child(model.currentDate.year + '/' + model.currentDate.month));
         model.transactions.$loaded().then(function () {
+          $scope.$emit('newItems',model.transactions);
           $rootScope.showLoader = false;
         }, function (error) {
           $state.go('login');

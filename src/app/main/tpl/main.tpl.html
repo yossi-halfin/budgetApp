@@ -31,26 +31,52 @@
         <span class="icon-bar"></span>
       </button>
 
+
       <span
         snap-close
         ng-click="model.back()"
         class="custom-btn pull-left fa fa-chevron-left">
       </span>
       <span
-        ng-if="!$state.includes('app.details')"
         class="custom-sep pull-left">
       </span>
       <span
         ui-sref="app.home.new({cat:$state.params.cat})"
-        ng-if="!$state.includes('app.details')"
         snap-close
         class="custom-btn pull-left fa fa-plus">
       </span>
+      <span
+        class="custom-sep pull-left">
+      </span>
+       <span class="dropdown custom-btn pull-left"  snap-close dropdown on-toggle="toggled(open)" ng-disabled="model.count==0?'disabled':false">
+        <span class="dropdown-toggle ion-android-notifications"  dropdown-toggle>
+          <bullet class="count" ng-show="model.count">{{model.count}}</bullet>
+        </span>
+         <div class="dropdown-menu notifications">
+           <div class="header">
+             <span class="text-right"><b>תאריך</b></span>
+             <span class="text-right"><b>פירוט</b></span>
+             <span class="text-right"><b>סכום</b></span>
+           </div>
+            <div class="body">
+              <div
+                   ng-repeat="item in model.lastItems | orderBy:'-date' | filter: model.notificationsFilter"
+                   ng-class-odd="'odd'"
+                   ng-class-even="'even'">
+                  <label class="date">{{item.date | date:'dd/MM'}}</label>
+                  <label class="info">{{item.info}}</label>
+                  <label class="sum">&#8362;&nbsp;{{item.sum}}</label>
+              </div>
 
-
+            </div>
+            <div class="footer">
+              <button ng-click="model.removeNotifications()"  snap-close type="button" class="btn btn-danger">נקה</button>
+              <button ng-click="toggleDropdown($event)"  snap-close type="button" class="btn btn-default">סגור</button>
+            </div>
+         </div>
+      </span>
 
       <span class="navbar-brand pull-right">
-        <any>ניהול תקציב</any> -
         <any>{{$state.current.data.state}}</any>
       </span>
 
