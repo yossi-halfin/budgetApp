@@ -1,5 +1,5 @@
 <div class="row" ui-view  style="padding:0 15px !important;">
-  <div class="well clearfix nopadding col-lg-6 col-lg-offset-3" style="padding: 10px 5px 0 !important;">
+  <div class="well clearfix nopadding col-lg-8 col-lg-offset-2" style="padding: 10px 5px 0 !important;">
     <h4 ng-style="{'visibility':!model.currentDate.month?'hidden':'visible'}" class="text-center text-muted" style="padding:0 5px;direction: ltr;">
       <any>{{model.currentDate.month}}</any>/<any>{{model.currentDate.year}}</any>
       -
@@ -105,7 +105,7 @@
   </div>
 
   <div  ng-if="model.categories[model.categories.length-1].toFixed(2)>0"
-       class="well clearfix col-lg-6 col-lg-offset-3">
+       class="well clearfix col-lg-8 col-lg-offset-2">
     <h3 class="text-muted" style="padding:0 5px;">השוואה גרפית</h3><br>
     <div class="col-lg-5 col-lg-offset-2  col-md-6 col-md-offset-1 col-sm-12  col-xs-12 pie">
 
@@ -124,7 +124,7 @@
     </div>
   </div>
 
-  <div class="well clearfix col-lg-6 col-lg-offset-3" ng-if="model.categories[model.categories.length-1].toFixed(2)>0">
+  <div class="well clearfix col-lg-8 col-lg-offset-2" ng-if="model.categories[model.categories.length-1].toFixed(2)>0">
     <h3 class="text-muted" style="padding:0 5px;">פעולות אחרונות</h3><br>
     <table class="table" dir="rtl">
       <thead>

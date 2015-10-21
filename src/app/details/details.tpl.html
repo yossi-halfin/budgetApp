@@ -13,7 +13,6 @@
     <thead>
     <tr>
       <!--<th class="text-right"><b>#</b></th>-->
-      <!--<th class="text-right"></th>-->
       <th class="text-right"><b>תאריך</b></th>
       <th class="text-right"><b>קטגוריה</b></th>
       <th class="text-right"><b>פירוט</b></th>
@@ -21,17 +20,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="row in model.filteredModel() | orderBy:'date'" ng-click="model.edit(row)" style="cursor: pointer;">
-      <!--<td class="text-right edit"><i ng-click="model.edit(row)" class="pointer text-info ion-edit" style="font-size: 16px;cursor: pointer;"></i>&nbsp;&nbsp;</td>-->
+    <tr ng-click="model.edit(row)" ng-repeat="row in model.filteredModel() | orderBy:'date'">
       <td class="text-right">{{row.date | date:'dd/MM/yy'}}</td>
       <td class="text-right">{{row.category|category}}</td>
-      <td class="text-right free-text">{{row.info}}</td>
+      <td class="text-right">{{row.info}}</td>
       <td class="text-right" style="direction: ltr;">{{row.sum.toFixed(2)}}</td>
     </tr>
     <tfoot>
     <tr>
-      <!--<td class="text-right"></td>-->
-      <!--<td class="text-right"></td>-->
       <td class="text-right"></td>
       <td class="text-right"></td>
       <td class="text-left"><b>סה״כ</b></td>

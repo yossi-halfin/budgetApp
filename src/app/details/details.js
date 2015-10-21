@@ -1,5 +1,26 @@
 (function (app) {
 
+  app.filter('catSum', function ($filter) {
+    return function (input, id) {
+      var out = [];
+
+      if(angular.isUndefined(id.category)){
+        return input;
+      }
+      angular.forEach(input, function(transaction) {
+
+        if (transaction.category === parseInt(id.category)) {
+          out.push(transaction);
+        }
+
+      });
+
+      return out;
+    };
+  });
+
+
+
   app.controller('DetailsController', function ($scope, firebase, $firebaseArray, $stateParams, $rootScope, $state, currentDate, $filter,editSrv) {
     var model = this;
     model.transactions = null;
@@ -23,8 +44,6 @@
           $rootScope.showLoader = false;
         });
       });
-
-
     }
 
     function getTableSum() {
@@ -36,7 +55,7 @@
     }
 
     function filter(){
-      return $filter('filter')(model.transactions,{ category: model.filterByCat });
+      return $filter('catSum')(model.transactions,{ category: model.filterByCat });
     }
 
     function edit(item){

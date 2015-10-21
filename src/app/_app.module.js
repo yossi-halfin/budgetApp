@@ -43,11 +43,15 @@
     };
   });
 
-  app.controller('AppController', function ($scope, $state, $rootScope,modalSrv) {
+  app.controller('AppController', function ($scope, $state, $rootScope,modalSrv,$window) {
     var model = this;
     var firebase = new Firebase("https://budgethalfinapp.firebaseio.com");
     model.logout = logout;
+    model.back = back;
 
+    function back(){
+      $window.history.back();
+    }
     function logout() {
       modalSrv.open('האם את/ה בטוח שברצונך להתנתק?').then(function(res){
         if(res){
