@@ -19,7 +19,7 @@
         var day = (new Date()).getDate();
 
 
-        if (day > 1 && day < settingsDate.date) {
+        if (day >= 1 && day < settingsDate.date) {
           if (month == 1) {
             month = 12;
           } else {
