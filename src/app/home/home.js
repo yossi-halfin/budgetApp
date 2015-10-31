@@ -63,10 +63,10 @@
         segmentStrokeColor: '#fff',
 
         //Number - The width of each segment stroke
-        segmentStrokeWidth: 2,
+        segmentStrokeWidth: 0,
 
         //Number - The percentage of the chart that we cut out of the middle
-        percentageInnerCutout: 50, // This is 0 for Pie charts
+        percentageInnerCutout: 0, // This is 0 for Pie charts
 
         //Number - Amount of animation steps
         animationSteps: 50,
